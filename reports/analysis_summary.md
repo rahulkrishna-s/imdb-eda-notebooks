@@ -2,13 +2,13 @@
 
 **Author:** Rahul Krishna S  
 **Date:** December 15, 2025  
-**Dataset:** IMDb Top 1000 Movies (Kaggle)  
-**Analysis Tool:** Python (pandas, matplotlib, seaborn)
+**Dataset:** IMDb Top 1000 Movies from Kaggle 
+**Analysis Tool:** Python and libraries like pandas, matplotlib and seaborn
 
 
 ## Summary
 
-This report presents the exploratory data analysis of the IMDb Top 1000 movies dataset. It explores the relationships between movie ratings, box office performance, genres, certifications, directors, and temporal trends. The analysis reveals many key insights into what drives critical acclaim and commercial success of movies and challenges common assumptions about the film industry.
+This report presents the exploratory data analysis of the IMDb Top 1000 movies dataset that I got from Kaggle. It explores the relationships between movie ratings, box office performance, genres, certifications, directors, and temporal trends. The analysis reveals many key insights into what drives critical acclaim and commercial success of movies and challenges common assumptions about the film industry.
 
 **Key Finding:** Box office revenue follows a power law distribution where most movies earn modest amounts while also having a few blockbusters that become big commercial successes. Volume does not equal value and the most common genres are not the most profitable.
 
@@ -17,21 +17,43 @@ This report presents the exploratory data analysis of the IMDb Top 1000 movies d
 
 ### 1.1 Source and Scope
   **Dataset:** IMDb Top 1000 Movies from Kaggle
+
   **Initial Size:** 1,000 rows × 16 columns
+
   **Final Size (after cleaning):** 773 rows × 16 columns
 
 ### 1.2 Key Variables
   **Numerical:** IMDB_Rating, Meta_score, Runtime, Gross, No_of_Votes, Released_Year
+
   **Categorical:** Genre, Certificate, Director
+
   **Derived:** Gross_Millions, Certificate_Cleaned, Decade, Score_Difference
 
 
 ## 2. Data Cleaning Methodology
 
 ### 2.1 Missing Value Treatment
-Released year value of one row was missing and was added using manual look up after getting the Series_Title. Rows missing the Certificate value was filled with Unrated because it wasnt too important for analysis. Metascore missing values was replaced by median. Rows missing gross was dropped because it was an important column.
+  Released year value of one row was missing and was added using manual look up after getting the Series_Title. 
+
+  Rows missing the Certificate value was filled with Unrated because it wasnt too important for analysis. 
+
+  Metascore missing values was replaced by median.
+
+  Rows missing Gross was dropped reducing the total number of rows in the cleaned dataset from 1000 to 831. This was done because Gross was an important column and visualization of the column suggested using median as a replacement wont work.
 
 ### 2.2 Data Type Conversions
-  Released_Year: object converted to int
-  Runtime:  obj converted int also removing min
-  Gross: from obj to float
+  Released_Year: object converted to int.
+
+  Runtime:  obj converted int also removing min.
+
+  Gross: from obj to float.
+
+### 2.3 Feature Engineering
+  **Gross_Millions:** Converted gross revenue to millions for readability
+
+  **Certificate_Cleaned:** Mapped 15+ certificate types to 4 categories called Universal, Parental Guidance, Adult and Unrated
+
+  **Decade:** Binned years into decades for temporal analysis
+
+  **Score_Difference:** (IMDB_Rating × 10) - Meta_score to compare the IMDb ratings with critic sentiment (that is metascore).
+
