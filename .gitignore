@@ -206,7 +206,3 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
-# Data and csvs for Exploratory Data Analysis (EDA)
-data/
-*.csv
-
