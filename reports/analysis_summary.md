@@ -2,7 +2,7 @@
 
 **Author:** Rahul Krishna S  
 
-**Date:** December 15, 2025  
+**Date:** 31-12-2025
 
 **Dataset:** IMDb Top 1000 Movies from Kaggle 
 
@@ -67,7 +67,7 @@ This report presents the exploratory data analysis of the IMDb Top 1000 movies d
   After splitting the dataframe, it was noted that 'Drama' genre dominated the dataset in terms of volume with close to 600 movies of that type. The second and third movies of that count, 'Comedy' and 'Crime' each had count below only 200. But the ratings and gross by genre analysis showed a different story.
   Among the top 10 genres by count, 'Mystery' had the highest median rating. 'Adventure', 'Animation' and 'Action' was the genres that had highest median gross near 100 million dollars. Drama had low median gross only with many outliers. It showed 'Adventure', 'Animation' and 'Action' were more safer investments in terms of risk from a financial perspective despite the high volume of 'Drama' genre movies among the top rated movies list.
 ### 3.3 Rating vs. Revenue: Weak Correlation
-  The correlation heatmap of the dataframe showed how interdependant each variabls were and how they affected eachother. The most interesting observation was the weak correlation between Revenue and IMDB_Rating. The correlation was very low of only 0.1. This implies just because a film have very positive reception or high ratings doesnt mean it will have high gross revenue. That is, revenue doesnt necessarily follow ratings.
+  The correlation heatmap of the dataframe showed how interdependant each variables were and how they affected eachother. The most interesting observation was the weak correlation between Revenue and IMDB_Rating. The correlation was very low of only 0.1. This implies just because a film have very positive reception or high ratings doesnt mean it will have high gross revenue. That is, revenue doesnt necessarily follow ratings.
   But the good correlation of Number of votes with IMDB rating and gross was noted, with the correlation being 0.5.
 ### 3.4 Critics vs. Audience: General Agreement with Outliers
   The reg plot of Meta_Score vs IMDB_ratings showed a line that indicated positive linear relationship. It means critics and audience tend to agree with eachother on movie ratings more often than not in this dataset. But there were also movies that both disagreed on, like the movie 'Notorious(1946)' that the critics rated a perfect 100 but only got 7.9 imdb rating and also movies like 'I am Sam(2001)' that got only 28 out of 100 from the movie critics but was loved by the general audience.
@@ -77,5 +77,10 @@ This report presents the exploratory data analysis of the IMDb Top 1000 movies d
   Steven Spielberg had the most movies in this dataset with 13 entries. Christopher Nolan had 8 movies that appeared in this top imdb rated movies list, but he had the highest median rating for his movies, showing how excellent of a director he is.
 ### 3.7 Temporal Trends: The Rating Decline Paradox
   The decade wise analysis showed how most movies in the list was from 2000s and 2010s, with number of movies making into the list increasing with time. But paradoxically, average ratings was better for older decade movies with it noticably dropping with time.
-## 7. Conclusion
-  Working through this analysis revealed how complex movie success really is. It showed how film making and cinemas have evolved through time. Quality doesn't guarantee profits, volume doesn't mean value, and what audiences love isn't always what critics appreciate. Despite cinema evolving dramatically, great storytelling remains timeless.
+
+## 4. Limitations
+  - **Selection Bias**: This dataset is exclusively that of IMDB top rated 1000 movies and thus can have biases related to it. Insights from this analysis maybe biased towards critically acclaimed films and may not generalize to broader film industry.
+  - **Data Incompleteness**: More than hundred rows had to be dropped from the original dataset during the preprocessing stage due to missing gross column values. So the analysis maybe missing insights from those dropped rows and the financial insights can be skewed if the missing data is not distributed randomly.
+  
+## 5. Conclusion
+  Working through this analysis revealed how complex movie success really is. It showed how film making and cinemas have evolved through time. Quality doesn't guarantee profits, volume doesn't mean value and what audiences love isn't always what critics appreciate. Despite cinema evolving dramatically, great storytelling remains timeless.
